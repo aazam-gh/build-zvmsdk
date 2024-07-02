@@ -1,4 +1,5 @@
-# Copyright 2017,2018 IBM Corp.
+#!/bin/sh
+# Copyright 2017 IBM Corp.
 # Copyright 2024 Contributors to the Open Mainframe Project.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -12,3 +13,21 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+#
+#------------------------------------------------------------------------------
+
+REPO=https://github.com/openmainframeproject/feilong
+REPOTOP=feilong
+ZTHINTOP=zthin-parts
+
+# Clone the repository
+git clone $REPO
+# Change to the cloned directory
+cd $REPOTOP
+
+# Copy files to the build directory with error handling
+echo "Attempting to copy zthinlogs to $ZTHINTOP:"
+cp ../zthinlogs $ZTHINTOP/ || { echo "Failed to copy zthinlogs"; exit 1; }
+
+# Create the tarball
+tar czf zthin-build.tar.gz $ZTHINTOP

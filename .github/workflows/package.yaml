@@ -1,0 +1,26 @@
+name: Package Feilong
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [obs-package]
+
+jobs:
+  package_feilong:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out build-zvmsdk repository
+        uses: actions/checkout@v4
+
+      - name: Make buildscript executable
+        run: chmod +x ./.github/buildscript
+
+      - name: Run buildzthinrpm_rhel script
+        run: ./.github/buildscript master
+
+      - name: Upload RPM artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zthin-tarball
+          path: feilong/zthin-build.tar.gz
