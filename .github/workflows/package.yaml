@@ -1,0 +1,27 @@
+name: Package Feilong
+
+on:
+  repository_dispatch:
+    types: [feilong_update]
+
+jobs:
+  package_feilong:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out build-zvmsdk Repository
+        uses: actions/checkout@v4
+        with:
+          repository: aazam-gh/build-zvmsdk
+
+      - name: Make buildzthinrpm_rhel Executable
+        run: chmod +x ./buildzthinrpm_rhel
+
+      - name: Run buildzthinrpm_rhel Script
+        run: ./buildzthinrpm_rhel master
+
+      - name: Upload RPM Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: zthin-rpm
+          path: ~/rpmbuild/OUTPUT/
