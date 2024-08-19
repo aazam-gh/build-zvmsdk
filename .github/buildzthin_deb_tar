@@ -16,18 +16,21 @@
 #
 #------------------------------------------------------------------------------
 
+# build scripts for zthin ubuntu
+
 REPO=https://github.com/openmainframeproject/feilong
 REPOTOP=feilong
+ZTHIN=zthin-parts
 
 git clone $REPO
+cd $REPOTOP/$ZTHIN
 
-# make debian folder and copy all stuffs to that folder
-mkdir $REPOTOP/debian
-cp ../zvmsdklogs $REPOTOP/
-cp ../sdkdeb/* $REPOTOP/debian
-cp ../vhost_deb.config $REPOTOP/
+mkdir -p debian
 
-# Enter build folder and build
-cd $REPOTOP
+# Copy files with error handling
+echo "Attempting to copy zvmsdklogs to $REPOTOP:"
+cp ../../zthinlogs . || { echo "Failed to copy zvmsdklogs"; exit 1; }
+cp -r ../../zthindeb/* debian/ || { echo "Failed to copy files to debian directory"; exit 1; }
+
+# start the real debian build
 dpkg-buildpackage -S
-
