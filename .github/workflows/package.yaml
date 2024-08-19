@@ -1,27 +1,43 @@
 name: Package Feilong
 
 on:
+  workflow_dispatch:
   repository_dispatch:
-    types: [feilong_update]
+    types: [obs-package]
 
 jobs:
-  package_feilong:
+  package_zthin:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check out build-zvmsdk Repository
+      - name: Check out build-zvmsdk repository
         uses: actions/checkout@v4
+
+      - name: Make buildscript_zthin executable
+        run: chmod +x ./.github/buildscript_zthin
+
+      - name: Run buildscript_zthin script
+        run: ./.github/buildscript_zthin master
+
+      - name: Upload zthin RPM artifact
+        uses: actions/upload-artifact@v4
         with:
-          repository: aazam-gh/build-zvmsdk
+          name: zthin-tarball
+          path: feilong/zthin-build.tar.gz
 
-      - name: Make buildzthinrpm_rhel Executable
-        run: chmod +x ./buildzthinrpm_rhel
+  package_zvmsdk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out build-zvmsdk repository
+        uses: actions/checkout@v4
 
-      - name: Run buildzthinrpm_rhel Script
-        run: ./buildzthinrpm_rhel master
+      - name: Make buildscript_zvmsdk executable
+        run: chmod +x ./.github/buildscript_zvmsdk
 
-      - name: Upload RPM Artifact
-        uses: actions/upload-artifact@v3
+      - name: Run buildscript_zvmsdk script
+        run: ./.github/buildscript_zvmsdk master
+
+      - name: Upload zvmsdk RPM artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: zthin-rpm
-          path: ~/rpmbuild/OUTPUT/
+          name: zvmsdk-tarball
+          path: feilong/zvmsdk-build.tar.gz
