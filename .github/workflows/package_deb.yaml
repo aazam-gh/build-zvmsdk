@@ -1,0 +1,25 @@
+name: Package Feilong for Debian
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [obs-package]
+
+jobs:
+  package_zvmsdk_deb:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out build-zvmsdk repository
+        uses: actions/checkout@v4
+
+      - name: Make buildscript_zvmsdk_deb executable
+        run: chmod +x ./.github/buildscript_zvmsdk_deb
+
+      - name: Run buildscript_zvmsdk script
+        run: ./.github/buildscript_zvmsdk_deb master
+
+      - name: Upload zvmsdk RPM artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zvmsdk-tarball
+          path: feilong/zvmsdk-deb-build.tar.gz
