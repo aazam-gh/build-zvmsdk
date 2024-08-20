@@ -31,7 +31,7 @@ jobs:
             feilong/zthin_3.1.2.tar.gz
             feilong/zthin_3.1.2.dsc
 
-  package_zvmsdk_deb:
+package_zvmsdk_deb:
     runs-on: ubuntu-latest
     steps:
       - name: Check out build-zvmsdk repository
