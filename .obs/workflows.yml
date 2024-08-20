@@ -1,0 +1,13 @@
+workflow:
+  steps:
+    - trigger_services:
+        project: home:Aazam:feilong
+        package: zthin_rhel
+    - rebuild_package:
+        project: home:Aazam:feilong
+        package: zthin_rhel
+  filters:
+    branches:
+      only:
+        - master
+    event: push
