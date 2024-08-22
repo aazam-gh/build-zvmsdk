@@ -30,4 +30,4 @@ cp ../zvmsdklogs $REPOTOP || { echo "Failed to copy zvmsdklogs"; exit 1; }
 
 # Create the tarball
 cd ..
-tar czf zvmsdk.tar.gz --exclude "$REPOTOP/.git" --exclude "$REPOTOP/zthin-parts" -C $REPOTOP .
+tar czf zvmsdk.tar.gz --exclude "$REPOTOP/.git" --exclude "$REPOTOP/zthin-parts" $REPOTOP
