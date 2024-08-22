@@ -26,7 +26,7 @@ cd $REPOTOP
 
 # Copy files to the build directory with error handling
 echo "Attempting to copy zvmsdklogs to $REPOTOP:"
-cp ../zvmsdklogs $REPOTOP || { echo "Failed to copy zvmsdklogs"; exit 1; }
+cp ../zvmsdklogs . || { echo "Failed to copy zvmsdklogs"; exit 1; }
 
 # Create the tarball
 cd ..
