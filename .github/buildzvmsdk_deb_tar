@@ -28,6 +28,7 @@ mkdir -p debian || { echo "Failed to create debian directory"; exit 1; }
 # Copy files with error handling
 echo "Attempting to copy zvmsdklogs to $REPOTOP:"
 cp ../zvmsdklogs . || { echo "Failed to copy zvmsdklogs"; exit 1; }
+cd ../vhost_deb.config . || { echo "Failed to copy vhost_deb"; exit 1; }
 cp -r ../sdkdeb/* debian/ || { echo "Failed to copy files to debian directory"; exit 1; }
 
 # Build the package
