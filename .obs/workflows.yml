@@ -2,22 +2,24 @@ workflow:
   steps:
     - trigger_services:
         project: home:Aazam:feilong
-        package: zthin_deb
-        package: zthin_rhel
-        package: zthin_sles
-        package: zvmsdk_deb
-        package: zvmsdk_rhel
-        package: zvmsdk_sles
+        packages: # Use "packages" (plural) and a list
+          - zthin_deb
+          - zthin_rhel
+          - zthin_sles
+          - zvmsdk_deb
+          - zvmsdk_rhel
+          - zvmsdk_sles
     - rebuild_package:
         project: home:Aazam:feilong
-        package: zthin_deb
-        package: zthin_rhel
-        package: zthin_sles
-        package: zvmsdk_deb
-        package: zvmsdk_rhel
-        package: zvmsdk_sles
+        packages: # Use "packages" (plural) and a list
+          - zthin_deb
+          - zthin_rhel
+          - zthin_sles
+          - zvmsdk_deb
+          - zvmsdk_rhel
+          - zvmsdk_sles
   filters:
     branches:
       only:
         - master
-    event: push
+  event: push
