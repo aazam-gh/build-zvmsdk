@@ -6,12 +6,12 @@ Version: 3.1.2
 Maintainer: jichen <jichenjc@cn.ibm.com>
 Homepage: http://cloudlib4zvm.readthedocs.io
 Standards-Version: 3.12.3
-Build-Depends: libtirpc-dev, debhelper (>= 12), dh-python, dh-make, python3-setuptools
+Build-Depends: libtirpc-dev, debhelper (>= 12), dh-python, dh-make, python3-setuptools, build-essential:native
 Package-List:
  zthin deb libs optional arch=s390x
 Checksums-Sha1:
- d4f989608431f824ea44fe8d9e377bca451b28c2 303074 zthin_3.1.2.tar.gz
+ bdef22ea6483172cb9d09eb0ff6ac083732206a0 303042 zthin_3.1.2.tar.gz
 Checksums-Sha256:
- 794607417c67f09183928623bf2bbcb338cb796a914cb52c79b0952e33699581 303074 zthin_3.1.2.tar.gz
+ 23866b829168a395662c3f9ec20ff6144bc332db32b368a03894b1bc2760e302 303042 zthin_3.1.2.tar.gz
 Files:
- cd7d00e0d668996da6817b01b95bbc8d 303074 zthin_3.1.2.tar.gz
+ 722c5291cc43c52c9747fb8a53d90ea9 303042 zthin_3.1.2.tar.gz

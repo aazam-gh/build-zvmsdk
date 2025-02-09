@@ -6,12 +6,12 @@ Version: 1.4.0
 Maintainer: jichen <jichenjc@cn.ibm.com>
 Homepage: http://cloudlib4zvm.readthedocs.io
 Standards-Version: 3.12.3
-Build-Depends: debhelper (>= 12), dh-python, python3-all, python3-setuptools
+Build-Depends: debhelper (>= 12), dh-python, python3-all, python3-setuptools, build-essential:native
 Package-List:
  zvmsdk deb libs optional arch=all
 Checksums-Sha1:
- 97cc97e83dcac4def095d3aecbb203059a7018a4 10673910 zvmsdk_1.4.0.tar.gz
+ 63e82ac2cb300afc4caa651207626f7cd1bd1943 10753252 zvmsdk_1.4.0.tar.gz
 Checksums-Sha256:
- adac0ad7d33347593236b0ebfa3f9f2fe7ef26e8f66b81a8c723651f713449b3 10673910 zvmsdk_1.4.0.tar.gz
+ a85d8a7823dea2185846ce809c7d5381621bb87efa73bf4d6c8826aa1c65b792 10753252 zvmsdk_1.4.0.tar.gz
 Files:
- 96700d1b5524410aa5278555b7cf1cd4 10673910 zvmsdk_1.4.0.tar.gz
+ bd73e20c1e850d7431cbaed9fb807617 10753252 zvmsdk_1.4.0.tar.gz
